@@ -1,0 +1,17 @@
+<div class="center-text" *ngIf="!equipmentData.length">
+    <h4>Welcome to </h4>
+    <h4>Rental Management System</h4>
+    <p>Please select location</p>
+</div>
+    
+<div class="row" *ngIf="equipmentData && equipmentData.length">
+        <div class="card-container">
+                <div class="card-item" *ngFor="let data of equipmentData;let i = index">
+                    <div class="equipment" (click)="openSubCategory(i)">
+                        <img src="{{'./assets/category/' + data.image}}" alt="Project Image" >
+                        <button type="button" class="btn btn-primary">{{data.name}}</button>
+                    </div>
+                </div>
+        </div>
+</div>
+

@@ -1,0 +1,20 @@
+ <!-- Toolbar -->
+<div class="toolbar" role="banner">
+    <div>Rentel Management System</div>
+
+    <div class="selector">
+        <p (click)="enableDropDown()">Select location</p>
+        <ul *ngIf="enableSelector" class="location-dropdown">
+            <li *ngFor="let key of data;let i = index">
+                <span (mouseenter) ="showBranches(i)" (click)="select(key.dealers_id)">{{key.name}}</span>
+                <ul *ngIf="branchObj.enableBranch"  class="branch-dropdown">
+                    <span  *ngIf="branchObj.branchIndex == i">
+                    <li *ngFor="let branch of key.branches;let c = index">
+                        <span  (click)="select(key.dealers_id,branch.branch_id)">{{branch.name}}</span>
+                    </li>
+                </span>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
